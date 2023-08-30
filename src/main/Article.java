@@ -1,9 +1,12 @@
 package main;
 
+import java.util.ArrayList;
+
 public class Article{
+
+    public ArrayList<Article> listofArticles = new ArrayList<>();
     //var. TestoArticolo
     private String Title="";
-
 
     //var. corpoArticolo
     private String bodyArticle="";
@@ -41,5 +44,4 @@ public class Article{
                 " </title>\n" + "\t<bodyText> " + bodyArticle + " </bodyArticle>\n" +
                 "</article>";
     }
-    
 }

@@ -1,12 +1,14 @@
 package main;
 
+import com.opencsv.exceptions.CsvValidationException;
 import main.adapters.GuardianAPIClient;
 import main.adapters.NYTimescsv;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CsvValidationException, FileNotFoundException {
 
         //new InteractiveMenu().runMenu();
         System.out.println("Select choice\n");
@@ -25,7 +27,9 @@ public class Main {
                 break;
             case 2:
                 GuardianAPIClient client = new GuardianAPIClient();
-                //client.fetchAndPrintArticles();
+                System.out.println("_______________________________________________");
+                client.fetchAndPrintArticles();
+                System.out.println("_______________________________________________");
                 break;
             default:
                 System.out.println("Input invalido\n");
