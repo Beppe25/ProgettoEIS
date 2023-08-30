@@ -1,4 +1,5 @@
 package main.adapters;
+import main.serialization.Deserialization;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class GuardianAPIClient {
 
     // Metodo per recuperare e stampare i titoli degli articoli
     public void fetchAndPrintArticles() {
+        int choise =2;
         try {
             // Esegue la richiesta API e ottiene la risposta JSON come stringa
             String response = makeAPIRequest(API_URL);

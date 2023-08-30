@@ -1,8 +1,8 @@
 package main.adapters;
-
+import main.serialization.Deserialization;
 import main.Article;
 
-import java.io.BufferedReader;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -30,12 +30,11 @@ public class NYTimescsv {
                 }
                 String title=line[2];
                 String bodyArticle=line[3];
-                //article.setTitle(title);
-                //article.setBodyArticle(bodyArticle);
-                article.listofArticles.add(new Article(title, bodyArticle));
-                //System.out.println(article.listofArticles);
-                //break; //-> legge un articolo
+                listofArticlesNY.add(new Article(title, bodyArticle));
+                Deserialization.saveArticlesToFile(listofArticlesNY, choise);
+                //break;
             }
+            //System.out.println(listofArticlesNY.size());
             csvReader.close();
         } catch (IOException e) {
             System.out.println("Errore nella lettura");

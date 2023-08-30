@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 
 public class Article{
 
@@ -40,8 +39,8 @@ public class Article{
 
     //@Override
     public String toString(){
-        return "<article>\n"+ "\t<Title> " + Title +
-                " </title>\n" + "\t<bodyText> " + bodyArticle + " </bodyArticle>\n" +
+        return "<article>\n"+ "\t<Title> \n" + "\t" + Title + "\n" +
+                "\t <Title>\n" + "\t<bodyArticle> \n" + "\t" + bodyArticle + "\n" +"\t <bodyArticle>\n" +
                 "</article>";
     }
 }

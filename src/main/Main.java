@@ -21,14 +21,15 @@ public class Main {
         String CSV_FILE_PATH = "/Users/Giuseppe/Desktop/Article/Ny Times Articles/nytimes_articles_v2.csv";
         switch(num){
             case 1:
+                NYTimescsv client1 = new NYTimescsv();
                 System.out.println("_______________________________________________");
-                NYTimescsv.ListofArticle(CSV_FILE_PATH);
+                client1.ListofArticle(CSV_FILE_PATH);
                 System.out.println("_______________________________________________");
                 break;
             case 2:
-                GuardianAPIClient client = new GuardianAPIClient();
+                GuardianAPIClient client2 = new GuardianAPIClient();
                 System.out.println("_______________________________________________");
-                client.fetchAndPrintArticles();
+                client2.fetchAndPrintArticles();
                 System.out.println("_______________________________________________");
                 break;
             default:
