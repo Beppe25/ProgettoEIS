@@ -19,7 +19,7 @@ public class Main {
         String CSV_FILE_PATH = "/Users/Giuseppe/Desktop/Article/Ny Times Articles/nytimes_articles_v2.csv";
         switch(num){
             case 1:
-                System.out.println("Read Data Line by Line With Header \n");
+                System.out.println("_______________________________________________");
                 NYTimescsv.ListofArticle(CSV_FILE_PATH);
                 System.out.println("_______________________________________________");
                 break;

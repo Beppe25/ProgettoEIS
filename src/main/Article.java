@@ -35,10 +35,10 @@ public class Article{
         return bodyArticle;
     }
 
-    @Override
+    //@Override
     public String toString(){
-        return "<article>\n"+ "\t<Title>" + Title +
-                "</title\n>" + "\t<bodyText>" + bodyArticle + "</bodyArticle>" +
+        return "<article>\n"+ "\t<Title> " + Title +
+                " </title>\n" + "\t<bodyText> " + bodyArticle + " </bodyArticle>\n" +
                 "</article>";
     }
     
