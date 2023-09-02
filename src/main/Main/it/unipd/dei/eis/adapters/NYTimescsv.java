@@ -1,6 +1,6 @@
-package main.adapters;
-import main.serialization.Deserialization;
-import main.Article;
+package main.Main.it.unipd.dei.eis.adapters;
+import main.Main.it.unipd.dei.eis.serialization.Deserialization;
+import main.Main.it.unipd.dei.eis.Article;
 
 
 import java.io.FileNotFoundException;
@@ -12,7 +12,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 public class NYTimescsv {
-    public static void ListofArticle(String FilePath) throws CsvValidationException, FileNotFoundException {
+
+    private ArrayList<Article> listofArticlesNY = new ArrayList<Article>();
+
+    public void ListofArticle(String FilePath) throws CsvValidationException, FileNotFoundException {
         Article article = new Article();
         CSVReader csvReader;
         try {
@@ -31,10 +34,7 @@ public class NYTimescsv {
                 String title=line[2];
                 String bodyArticle=line[3];
                 listofArticlesNY.add(new Article(title, bodyArticle));
-                Deserialization.saveArticlesToFile(listofArticlesNY, choise);
-                //break;
             }
-            //System.out.println(listofArticlesNY.size());
             csvReader.close();
         } catch (IOException e) {
             System.out.println("Errore nella lettura");
@@ -43,4 +43,5 @@ public class NYTimescsv {
             System.out.println("Errore - CSV non valido");
         }
     }//chiude funzione
+    public ArrayList<Article> getArrayList() { return listofArticlesNY; }
 }

@@ -1,11 +1,15 @@
-package main;
-
+package main.Main.it.unipd.dei.eis;
+import main.Main.it.unipd.dei.eis.CountingWords;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Article{
 
     public ArrayList<Article> listofArticles = new ArrayList<>();
     //var. TestoArticolo
     private String Title="";
+    CountingWords words = new CountingWords();
+    Map<String, String> ArticleMap = new TreeMap<>();
 
     //var. corpoArticolo
     private String bodyArticle="";
@@ -13,6 +17,10 @@ public class Article{
     public Article(String Title,String bodyArticle){
         this.Title=Title;
         this.bodyArticle=bodyArticle;
+        ArticleMap.put(Title, bodyArticle);
+        ArticleMap.get(Title);
+        ArticleMap.get(bodyArticle);
+        words.CountingTokens(Title, bodyArticle);
     }
     //Articolo vuoto
     public Article(){

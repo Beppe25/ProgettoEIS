@@ -1,8 +1,10 @@
-package main;
+package main.Main.it.unipd.dei.eis;
 
 import com.opencsv.exceptions.CsvValidationException;
-import main.adapters.GuardianAPIClient;
-import main.adapters.NYTimescsv;
+import main.Main.it.unipd.dei.eis.adapters.GuardianAPIClient;
+import main.Main.it.unipd.dei.eis.adapters.NYTimescsv;
+import main.Main.it.unipd.dei.eis.serialization.Deserialization;
+
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -24,12 +26,17 @@ public class Main {
                 NYTimescsv client1 = new NYTimescsv();
                 System.out.println("_______________________________________________");
                 client1.ListofArticle(CSV_FILE_PATH);
+
+                Deserialization.SaveArticlesToFile(client1.getArrayList(),1);
                 System.out.println("_______________________________________________");
                 break;
             case 2:
                 GuardianAPIClient client2 = new GuardianAPIClient();
                 System.out.println("_______________________________________________");
+
                 client2.fetchAndPrintArticles();
+                Deserialization.SaveArticlesToFile(client2.getArrayList(),2);
+
                 System.out.println("_______________________________________________");
                 break;
             default:
