@@ -5,7 +5,6 @@ import java.util.TreeMap;
 
 public class Article{
 
-    public ArrayList<Article> listofArticles = new ArrayList<>();
     //var. TestoArticolo
     private String Title="";
     CountingWords words = new CountingWords();
