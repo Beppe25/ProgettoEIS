@@ -10,4 +10,9 @@ import java.io.BufferedReader;
 
 
 public class Serialization {
+
+    public static void Serialize(String[] fileTxtPaths, int choice)
+    {
+
+    }
 }
