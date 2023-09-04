@@ -4,6 +4,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import main.Main.it.unipd.dei.eis.adapters.GuardianAPIClient;
 import main.Main.it.unipd.dei.eis.adapters.NYTimescsv;
 import main.Main.it.unipd.dei.eis.serialization.Deserialization;
+import main.Main.it.unipd.dei.eis.serialization.Serialization;
 
 
 import java.io.FileNotFoundException;
@@ -20,6 +21,7 @@ public class Main {
         //lettura scanner di input
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
+
         String CSV_FILE_PATH = "/Users/Giuseppe/Desktop/Article/Ny Times Articles/nytimes_articles_v2.csv";
         switch(num){
             case 1:
