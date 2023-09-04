@@ -13,9 +13,8 @@ import com.opencsv.exceptions.CsvValidationException;
 
 public class NYTimescsv {
 
-    private ArrayList<Article> listofArticlesNY = new ArrayList<Article>();
-
-    public void ListofArticle(String FilePath) throws CsvValidationException, FileNotFoundException {
+// public void loadArrayList() throws CsvValidationException, FileNotFoundException
+    public void loadArrayList() {
         Article article = new Article();
         CSVReader csvReader;
         try {

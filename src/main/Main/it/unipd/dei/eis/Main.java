@@ -25,17 +25,18 @@ public class Main {
             case 1:
                 NYTimescsv client1 = new NYTimescsv();
                 System.out.println("_______________________________________________");
-                client1.ListofArticle(CSV_FILE_PATH);
-
-                Deserialization.SaveArticlesToFile(client1.getArrayList(),1);
+                client1.loadArrayList();
+                Serialization.serializeArticlesToFile(client1.getArrayList(),"./Files/Serialize.txt");
+                //System.out.println(client1.getArrayList());
+                //Deserialization.SaveArticlesToFile(client1.getArrayList(),1);
                 System.out.println("_______________________________________________");
                 break;
             case 2:
                 GuardianAPIClient client2 = new GuardianAPIClient();
                 System.out.println("_______________________________________________");
 
-                client2.fetchAndPrintArticles();
-                Deserialization.SaveArticlesToFile(client2.getArrayList(),2);
+                client2.loadArrayList();
+                //Deserialization.SaveArticlesToFile(client2.getArrayList(),2);
 
                 System.out.println("_______________________________________________");
                 break;
