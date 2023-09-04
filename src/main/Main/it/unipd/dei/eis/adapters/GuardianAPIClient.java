@@ -1,9 +1,8 @@
 package main.Main.it.unipd.dei.eis.adapters;
 
 import main.Main.it.unipd.dei.eis.serialization.Deserialization;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONArray;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 
 
 
-public class GuardianAPIClient {
+public class GuardianAPIClient extends Adapter {
 
     // Chiave API fornita da The Guardian
     private static final String API_KEY = "87ec1552-3962-48d7-9f7a-3b22f366781c";
@@ -53,8 +52,8 @@ public class GuardianAPIClient {
                 String body = article.getJSONObject("fields").getString("bodyText");
                 //System.out.println("Article Body: " + body);
 
-                //aggiunge titolo e body
-                articlesListGuardian.add(new Article(title, body));
+                //aggiunge titolo e body alla arraylist
+                articlesList.add(new Article(title, body));
 
                 //file.saveArticlesToFile(articlesListGuardian, choise);
 
@@ -92,6 +91,15 @@ public class GuardianAPIClient {
                 response.append(inputLine);
             }
             in.close();
+
+            //dowload file JSON
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                writer.write(response.toString());
+            } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
             return response.toString();
         } else {

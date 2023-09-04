@@ -11,7 +11,11 @@ import java.util.ArrayList;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class NYTimescsv {
+public class NYTimescsv extends Adapter {
+
+    public NYTimescsv(){
+        filePath = "./Files/NY Times/nytimes_articles_v2.csv";
+    }
 
 // public void loadArrayList() throws CsvValidationException, FileNotFoundException
     public void loadArrayList() {
@@ -32,7 +36,7 @@ public class NYTimescsv {
                 }
                 String title=line[2];
                 String bodyArticle=line[3];
-                listofArticlesNY.add(new Article(title, bodyArticle));
+                articlesList.add(new Article(title, bodyArticle));
             }
             csvReader.close();
         } catch (IOException e) {
@@ -42,5 +46,5 @@ public class NYTimescsv {
             System.out.println("Errore - CSV non valido");
         }
     }//chiude funzione
-    public ArrayList<Article> getArrayList() { return listofArticlesNY; }
+
 }

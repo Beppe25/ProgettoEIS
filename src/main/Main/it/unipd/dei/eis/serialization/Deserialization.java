@@ -1,64 +1,61 @@
-package main.Main.it.unipd.dei.eis.serialization;
 
-import java.io.File;
-import java.util.ArrayList;
-import main.Main.it.unipd.dei.eis.Article;
-import java.io.FileWriter;
-import java.io.IOException;
+package main.Main.it.unipd.dei.eis.serialization;
+//a file .JSON
+
+        import java.io.File;
+        import java.util.ArrayList;
+        import main.Main.it.unipd.dei.eis.Article;
+        import java.io.FileReader;
+        import java.io.IOException;
+        import java.io.BufferedReader;
+
 
 public class Deserialization {
 
-    public static void  SaveArticlesToFile(ArrayList<Article> articles, int choice) {
+    /*public static Article Deserialize(String filePath, int choice){
 
-        String directory = "/Users/Giuseppe/Desktop/Article";
-        File folder = new File(directory);
-        folder.mkdirs();
 
-        if(choice==1) {
+            public static Article deserializeArticle(String filePath) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                    String title = null;
+                    String bodyArticle = null;
+                    String line;
 
-            String directoryNYTimes = directory+"/NY Times";
-            File folderNYTimes = new File(directoryNYTimes);
-            folderNYTimes.mkdirs();
+                    while ((line = reader.readLine()) != null) {
+                        String[] parts = line.split(": ");
+                        if (parts.length == 2) {
+                            String key = parts[0];
+                            String value = parts[1];
+                            if ("Title".equals(key)) {
+                                title = value;
+                            } else if ("BodyArticle".equals(key)) {
+                                bodyArticle = value;
+                            }
+                        }
+                    }
 
-            // Salvataggio degli articoli in file di testo
-            for (int i = 0; i < articles.size(); i++) {
-                Article article = articles.get(i);
-                String fileName = "article n-" + (i + 1);
-
-                try {
-                    FileWriter fileWriter = new FileWriter(directoryNYTimes + "/" + fileName);
-                    fileWriter.write("Titolo: " + article.getTitle() + "\n");
-                    fileWriter.write("Contenuto:\n" + article.getBodyArticle());
-                    fileWriter.close();
-
+                    if (title != null && bodyArticle != null) {
+                        return new Article(title, bodyArticle);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                return null;
             }
-            System.out.println("Articoli salvati nel percorso: "+directoryNYTimes);
-        }
 
-        if(choice==2) {
-            String directoryTheGuardian = directory+"/The Guardian";
-            File folderTheGuardian = new File(directoryTheGuardian);
-            folderTheGuardian.mkdirs();
+            /*public static void main(String[] args) {
+                String filePath = "articolo.txt";
+                Article article = deserializeArticle(filePath);
 
-            // Salvataggio degli articoli in file di testo
-            for (int i = 0; i < articles.size(); i++) {
-                Article article = articles.get(i);
-                String fileName = "article n-" + (i + 1);
-
-                try {
-                    FileWriter fileWriter = new FileWriter(directoryTheGuardian + "/" + fileName);
-                    fileWriter.write("Titolo: " + article.getTitle() + "\n");
-                    fileWriter.write("Contenuto:\n" + article.getBodyArticle());
-                    fileWriter.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (article != null) {
+                    System.out.println("Titolo: " + article.getTitle());
+                    System.out.println("Corpo del testo: " + article.getBodyArticle());
+                } else {
+                    System.out.println("Errore nella deserializzazione dell'articolo.");
                 }
             }
-            System.out.println("Articoli salvati nel percorso: "+directoryTheGuardian);
         }
-    }
+
+    }*/
 }
