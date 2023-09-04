@@ -22,7 +22,8 @@ public class NYTimescsv extends Adapter {
         Article article = new Article();
         CSVReader csvReader;
         try {
-            csvReader = new CSVReader(new FileReader(FilePath));
+
+            csvReader = new CSVReader(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             System.out.println("[ERROR] - Check the file name and path");
             throw new RuntimeException(e);
